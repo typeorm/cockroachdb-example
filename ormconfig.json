@@ -1,12 +1,11 @@
 {
   "name": "default",
-  "type": "mysql",
+  "type": "cockroachdb",
   "host": "localhost",
-  "port": 3306,
-  "username": "test",
-  "password": "test",
-  "database": "test",
-  "synchronize": true,
+  "port": 26257,
+  "username": "root",
+  "password": "",
+  "database": "defaultdb",
   "logging": false,
   "entities": [
     "src/entity/*.js"
