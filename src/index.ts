@@ -1,10 +1,10 @@
-import {createConnection} from "typeorm";
-import {Post} from "./entity/Post";
-import {Category} from "./entity/Category";
+import { createConnection } from "typeorm";
+import { Post } from "./entity/Post";
+import { Category } from "./entity/Category";
 
 // connection settings are in the "ormconfig.json" file
-createConnection().then(async connection => {
-
+createConnection()
+  .then(async (connection) => {
     const category1 = new Category();
     category1.name = "TypeScript";
     await connection.manager.save(category1);
@@ -15,11 +15,13 @@ createConnection().then(async connection => {
 
     const post = new Post();
     post.title = "Control flow based type analysis";
-    post.text = `TypeScript 2.0 implements a control flow-based type analysis for local variables and parameters.`;
+    post.text = "TypeScript 4.0 is awesome";
     post.categories = [category1, category2];
-
     await connection.manager.save(post);
 
-    console.log("Post has been saved: ", post);
-
-}).catch(error => console.log("Error: ", error));
+    const categories = await connection.manager.find(Category);
+    console.log(categories);
+    const posts = await connection.manager.find(Post);
+    console.log(posts);
+  })
+  .catch((error) => console.log("Error: ", error));
