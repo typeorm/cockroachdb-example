@@ -1,6 +1,6 @@
 # Example how to use TypeORM with CockroachDB
 
-1. clone repository 
-2. run `npm i`
-4. run `npm start`
-5. enjoy!
+1. Clone the repository
+2. Install dependencies `npm i`
+3. Run `npm start`
+4. Enjoy!
